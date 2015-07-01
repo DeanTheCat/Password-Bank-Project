@@ -21,5 +21,23 @@ namespace PasswordBank
         {
 
         }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login openForm = new Login();
+            openForm.ShowDialog();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Logout openForm = new Logout();
+            openForm.ShowDialog();
+        }
+
+        private void createAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateAccount openForm = new CreateAccount();
+            openForm.ShowDialog();
+        }
     }
 }

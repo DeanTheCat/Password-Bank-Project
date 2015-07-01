@@ -16,5 +16,10 @@ namespace PasswordBank
         {
             InitializeComponent();
         }
+
+        private void PasswordBank_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

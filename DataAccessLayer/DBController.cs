@@ -13,7 +13,7 @@ namespace DataAccessLayer
     class DBController
     {
         string connString = Properties.Settings.Default.ConnString;
-        public int getSalt(String username)
+        private int getSalt(String username)
         {
             int salt;
             
@@ -41,7 +41,7 @@ namespace DataAccessLayer
             }
         }
 
-        public string getPasswordHash(string username)
+        private string getPasswordHash(string username)
         {
             string hash;
 
@@ -68,5 +68,35 @@ namespace DataAccessLayer
                 connection.Dispose();
             }
         }
+
+        public int registerUser(string username, string passwordHash, int salt)
+            
+        { 
+            string query;
+
+            query = "INSERT INTO users (username, passwordHash, salt) "+
+                "VALUES "+
+                "('"+ username +"', '"+ passwordHash +"', '" + salt + "')";
+
+            SqlConnection connection = new SqlConnection(connString);
+            SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                connection.Open();
+                int returnValue = 0;
+                returnValue = command.ExecuteNonQuery();
+                return returnValue;
+            }
+            catch
+            {
+                return -1;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+}
     }
 }

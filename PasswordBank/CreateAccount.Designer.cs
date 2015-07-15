@@ -53,6 +53,7 @@
             this.btn_createAccount.TabIndex = 10;
             this.btn_createAccount.Text = "Create Account";
             this.btn_createAccount.UseVisualStyleBackColor = true;
+            this.btn_createAccount.Click += new System.EventHandler(this.btn_createAccount_Click);
             // 
             // tb_pass
             // 

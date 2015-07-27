@@ -79,6 +79,7 @@
             this.btn_login.TabIndex = 4;
             this.btn_login.Text = "Login";
             this.btn_login.UseVisualStyleBackColor = true;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // lbl_error
             // 

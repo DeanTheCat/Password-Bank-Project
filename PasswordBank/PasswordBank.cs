@@ -12,6 +12,8 @@ namespace PasswordBank
 {
     public partial class PasswordBank : Form
     {
+        public static string currentUser;
+        
         public PasswordBank()
         {
             InitializeComponent();
@@ -19,7 +21,22 @@ namespace PasswordBank
 
         private void PasswordBank_Load(object sender, EventArgs e)
         {
+            if (currentUser == null)
+            {
+                lbl_currentUser.Text = "Guest";
+            }
+        }
 
+        public string LabelText
+        {
+            get
+            {
+                return this.lbl_currentUser.Text;
+            }
+            set
+            {
+                this.lbl_currentUser.Text = value;
+            }
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)

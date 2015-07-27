@@ -93,7 +93,7 @@ namespace DataAccessLayer
             finally
             {
                 connection.Close();
-                //connection.Dispose();
+                connection.Dispose();
             }
         }
 

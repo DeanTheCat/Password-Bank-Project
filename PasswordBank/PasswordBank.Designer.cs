@@ -37,6 +37,8 @@
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_exit = new System.Windows.Forms.Button();
+            this.lbl_welcome = new System.Windows.Forms.Label();
+            this.lbl_currentUser = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,7 +100,7 @@
             // 
             // btn_exit
             // 
-            this.btn_exit.Location = new System.Drawing.Point(197, 37);
+            this.btn_exit.Location = new System.Drawing.Point(197, 226);
             this.btn_exit.Name = "btn_exit";
             this.btn_exit.Size = new System.Drawing.Size(75, 23);
             this.btn_exit.TabIndex = 1;
@@ -106,12 +108,31 @@
             this.btn_exit.UseVisualStyleBackColor = true;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
+            // lbl_welcome
+            // 
+            this.lbl_welcome.AutoSize = true;
+            this.lbl_welcome.Location = new System.Drawing.Point(13, 46);
+            this.lbl_welcome.Name = "lbl_welcome";
+            this.lbl_welcome.Size = new System.Drawing.Size(55, 13);
+            this.lbl_welcome.TabIndex = 2;
+            this.lbl_welcome.Text = "Welcome ";
+            // 
+            // lbl_currentUser
+            // 
+            this.lbl_currentUser.AutoSize = true;
+            this.lbl_currentUser.Location = new System.Drawing.Point(74, 46);
+            this.lbl_currentUser.Name = "lbl_currentUser";
+            this.lbl_currentUser.Size = new System.Drawing.Size(0, 13);
+            this.lbl_currentUser.TabIndex = 3;
+            // 
             // PasswordBank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.lbl_currentUser);
+            this.Controls.Add(this.lbl_welcome);
             this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -137,6 +158,8 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createAccountToolStripMenuItem;
         private System.Windows.Forms.Button btn_exit;
+        private System.Windows.Forms.Label lbl_welcome;
+        public System.Windows.Forms.Label lbl_currentUser;
     }
 }
 

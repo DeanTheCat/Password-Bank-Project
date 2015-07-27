@@ -39,5 +39,10 @@ namespace PasswordBank
             CreateAccount openForm = new CreateAccount();
             openForm.ShowDialog();
         }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

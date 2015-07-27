@@ -72,7 +72,7 @@ namespace DataAccessLayer
         public int registerUser(string username, string passwordHash, int salt)
         { 
             string query;
-
+            
             query = "INSERT INTO users (username, passwordHash, salt) "+
                 "VALUES "+
                 "('"+ username +"', '"+ passwordHash +"', '" + salt + "')";
@@ -93,7 +93,7 @@ namespace DataAccessLayer
             finally
             {
                 connection.Close();
-                connection.Dispose();
+                //connection.Dispose();
             }
         }
 

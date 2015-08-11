@@ -17,6 +17,7 @@ namespace PasswordBank
         public PasswordBank()
         {
             InitializeComponent();
+            btn_passwordManager.Visible = false;
         }
 
         private void PasswordBank_Load(object sender, EventArgs e)
@@ -45,13 +46,26 @@ namespace PasswordBank
             Login openForm = new Login();
             dr = openForm.ShowDialog();
             if (dr == DialogResult.OK)
+            {
                 lbl_currentUser.Text = currentUser;
+
+                if (currentUser != null)
+                {
+                    btn_passwordManager.Visible = true;
+                }
+            }
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DialogResult dr = new DialogResult();
             Logout openForm = new Logout();
-            openForm.ShowDialog();
+            dr = openForm.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                btn_passwordManager.Visible = false;
+                lbl_currentUser.Text = "Guest";
+            }
         }
 
         private void createAccountToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,5 +78,13 @@ namespace PasswordBank
         {
             Application.Exit();
         }
+
+        private void btn_passwordManager_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            ManagePassword openForm = new ManagePassword();
+            dr = openForm.ShowDialog();
+        }
+
     }
 }

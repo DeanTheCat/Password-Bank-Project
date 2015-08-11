@@ -39,6 +39,7 @@
             this.btn_exit = new System.Windows.Forms.Button();
             this.lbl_welcome = new System.Windows.Forms.Label();
             this.lbl_currentUser = new System.Windows.Forms.Label();
+            this.btn_passwordManager = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,7 +96,7 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // btn_exit
@@ -125,12 +126,23 @@
             this.lbl_currentUser.Size = new System.Drawing.Size(0, 13);
             this.lbl_currentUser.TabIndex = 3;
             // 
+            // btn_passwordManager
+            // 
+            this.btn_passwordManager.Location = new System.Drawing.Point(13, 101);
+            this.btn_passwordManager.Name = "btn_passwordManager";
+            this.btn_passwordManager.Size = new System.Drawing.Size(156, 23);
+            this.btn_passwordManager.TabIndex = 4;
+            this.btn_passwordManager.Text = "Open Password Manager";
+            this.btn_passwordManager.UseVisualStyleBackColor = true;
+            this.btn_passwordManager.Click += new System.EventHandler(this.btn_passwordManager_Click);
+            // 
             // PasswordBank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btn_passwordManager);
             this.Controls.Add(this.lbl_currentUser);
             this.Controls.Add(this.lbl_welcome);
             this.Controls.Add(this.btn_exit);
@@ -160,6 +172,7 @@
         private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Label lbl_welcome;
         public System.Windows.Forms.Label lbl_currentUser;
+        private System.Windows.Forms.Button btn_passwordManager;
     }
 }
 

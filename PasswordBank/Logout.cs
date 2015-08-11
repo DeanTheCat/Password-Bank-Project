@@ -16,5 +16,10 @@ namespace PasswordBank
         {
             InitializeComponent();
         }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            PasswordBank.currentUser = null;
+        }
     }
 }

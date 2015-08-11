@@ -128,6 +128,146 @@ namespace DataAccessLayer
             }
         }
 
+        public int storePasswordDetails(string url, string username, string password, string iniValue, string keyValue, string user)
+        {
+            string query;
+
+            query = "INSERT INTO stored (user, iniVal, url, password, username, key) " +
+                "VALUES " +
+                "('" + user + "', '" + iniValue + "','" + url + "','" + password + "','" + username + "', '" + keyValue + "')";
+
+            SqlConnection connection = new SqlConnection(connString);
+            SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                connection.Open();
+                int returnValue = 0;
+                returnValue = command.ExecuteNonQuery();
+                return returnValue;
+            }
+            catch
+            {
+                return -1;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        public string getUsername(string url, string user)
+        {
+            string username;
+
+            string query;
+
+            query = "SELECT username FROM stored WHERE url = '" + url + "' AND user = '" + user + "'";
+
+            SqlConnection connection = new SqlConnection(connString);
+            SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                connection.Open();
+                username = (string)command.ExecuteScalar();
+
+                return username;
+            }
+            catch
+            {
+                return "-1";
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        public string getPassword(string url, string user)
+        {
+            string password;
+
+            string query;
+
+            query = "SELECT password FROM stored WHERE url = '" + url + "' AND user = '" + user + "'";
+
+            SqlConnection connection = new SqlConnection(connString);
+            SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                connection.Open();
+                password = (string)command.ExecuteScalar();
+
+                return password;
+            }
+            catch
+            {
+                return "-1";
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        public string getIniValue(string url, string user)
+        {
+            string IniValue;
+
+            string query;
+
+            query = "SELECT iniVal FROM stored WHERE url = '" + url + "' AND user = '" + user + "'";
+
+            SqlConnection connection = new SqlConnection(connString);
+            SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                connection.Open();
+                IniValue = (string)command.ExecuteScalar();
+
+                return IniValue;
+            }
+            catch
+            {
+                return "-1";
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        public string getKey(string url, string user)
+        {
+            string key;
+
+            string query;
+
+            query = "SELECT key FROM stored WHERE url = '" + url + "' AND user = '" + user + "'";
+
+            SqlConnection connection = new SqlConnection(connString);
+            SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                connection.Open();
+                key = (string)command.ExecuteScalar();
+
+                return key;
+            }
+            catch
+            {
+                return "-1";
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
         private int storeNounce(string username, DateTime date, int nounce)
         {
             string query;

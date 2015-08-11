@@ -53,12 +53,14 @@
             // 
             // btn_logout
             // 
+            this.btn_logout.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_logout.Location = new System.Drawing.Point(102, 44);
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Size = new System.Drawing.Size(75, 23);
             this.btn_logout.TabIndex = 2;
             this.btn_logout.Text = "Logout";
             this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // Logout
             // 

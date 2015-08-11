@@ -86,5 +86,11 @@ namespace PasswordBank
             dr = openForm.ShowDialog();
         }
 
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This password bank application is created by Ng Dean Wern (123548T)", "Password Bank",
+            MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
     }
 }

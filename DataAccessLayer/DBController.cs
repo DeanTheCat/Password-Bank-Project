@@ -108,7 +108,7 @@ namespace DataAccessLayer
             }
             else if (retrievedHash == passwordHash)
             {
-                /*
+                
                 nounceCheck = checkNounce(nounce, username);
                 if (nounceCheck == -1)
                 {
@@ -119,7 +119,7 @@ namespace DataAccessLayer
                 {
                     return 0;
                 }
-                */
+                
                 return 1;
             }
             else
@@ -132,7 +132,7 @@ namespace DataAccessLayer
         {
             string query;
 
-            query = "INSERT INTO stored (user, iniVal, url, password, username, key) " +
+            query = "INSERT INTO stored (userID, iniVal, url, password, username, keyString) " +
                 "VALUES " +
                 "('" + user + "', '" + iniValue + "','" + url + "','" + password + "','" + username + "', '" + keyValue + "')";
 
@@ -162,7 +162,7 @@ namespace DataAccessLayer
 
             string query;
 
-            query = "SELECT username FROM stored WHERE url = '" + url + "' AND user = '" + user + "'";
+            query = "SELECT username FROM stored WHERE url = '" + url + "' AND userID = '" + user + "'";
 
             SqlConnection connection = new SqlConnection(connString);
             SqlCommand command = new SqlCommand(query, connection);
@@ -190,7 +190,7 @@ namespace DataAccessLayer
 
             string query;
 
-            query = "SELECT password FROM stored WHERE url = '" + url + "' AND user = '" + user + "'";
+            query = "SELECT password FROM stored WHERE url = '" + url + "' AND userID = '" + user + "'";
 
             SqlConnection connection = new SqlConnection(connString);
             SqlCommand command = new SqlCommand(query, connection);
@@ -218,7 +218,7 @@ namespace DataAccessLayer
 
             string query;
 
-            query = "SELECT iniVal FROM stored WHERE url = '" + url + "' AND user = '" + user + "'";
+            query = "SELECT iniVal FROM stored WHERE url = '" + url + "' AND userID = '" + user + "'";
 
             SqlConnection connection = new SqlConnection(connString);
             SqlCommand command = new SqlCommand(query, connection);
@@ -246,7 +246,7 @@ namespace DataAccessLayer
 
             string query;
 
-            query = "SELECT key FROM stored WHERE url = '" + url + "' AND user = '" + user + "'";
+            query = "SELECT keyString FROM stored WHERE url = '" + url + "' AND userID = '" + user + "'";
 
             SqlConnection connection = new SqlConnection(connString);
             SqlCommand command = new SqlCommand(query, connection);
@@ -268,11 +268,47 @@ namespace DataAccessLayer
             }
         }
 
+
+        public int checkURL(string url, string user)
+        {
+            string username;
+
+            string query;
+
+            query = "SELECT username FROM stored WHERE url = '" + url + "' AND userID = '" + user + "'";
+
+            SqlConnection connection = new SqlConnection(connString);
+            SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                connection.Open();
+                username = (string)command.ExecuteScalar();
+
+                if (username == null)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+            catch
+            {
+                return -1;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
         private int storeNounce(string username, DateTime date, int nounce)
         {
             string query;
 
-            query = "INSERT INTO nounce (nounce, user, date) "+
+            query = "INSERT INTO nounce (nounce, userID, dateOfLogin) "+
                 "VALUES "+
                 "('"+ nounce +"', '"+ username +"', '" + date + "')";
 
@@ -326,7 +362,7 @@ namespace DataAccessLayer
                 string query2;
                 string retrievedUser;
 
-                query2 = "SELECT username FROM nounce WHERE nounce = '" + nounceEntered + "'";
+                query2 = "SELECT userID FROM nounce WHERE nounce = '" + nounceEntered + "'";
                 SqlCommand command2 = new SqlCommand(query, connection);
                 try
                 {

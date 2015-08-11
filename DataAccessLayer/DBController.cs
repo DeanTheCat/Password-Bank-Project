@@ -108,15 +108,10 @@ namespace DataAccessLayer
             }
             else if (retrievedHash == passwordHash)
             {
+                /*
                 nounceCheck = checkNounce(nounce, username);
                 if (nounceCheck == -1)
                 {
-                    return -1;
-                }
-                else if (nounceCheck == 0)
-                {
-                    
-                    
                     int store = storeNounce(username, DateTime.UtcNow , nounce);
                     return store;
                 }
@@ -124,6 +119,8 @@ namespace DataAccessLayer
                 {
                     return 0;
                 }
+                */
+                return 1;
             }
             else
             {

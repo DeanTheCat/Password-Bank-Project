@@ -41,8 +41,11 @@ namespace PasswordBank
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DialogResult dr = new DialogResult();
             Login openForm = new Login();
-            openForm.ShowDialog();
+            dr = openForm.ShowDialog();
+            if (dr == DialogResult.OK)
+                lbl_currentUser.Text = currentUser;
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)

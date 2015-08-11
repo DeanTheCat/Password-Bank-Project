@@ -35,6 +35,7 @@
             this.tb_pass = new System.Windows.Forms.TextBox();
             this.btn_login = new System.Windows.Forms.Button();
             this.lbl_error = new System.Windows.Forms.Label();
+            this.btn_close = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_user
@@ -89,12 +90,23 @@
             this.lbl_error.Size = new System.Drawing.Size(0, 13);
             this.lbl_error.TabIndex = 5;
             // 
+            // btn_close
+            // 
+            this.btn_close.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btn_close.Location = new System.Drawing.Point(197, 226);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(75, 23);
+            this.btn_close.TabIndex = 6;
+            this.btn_close.Text = "Close";
+            this.btn_close.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btn_close);
             this.Controls.Add(this.lbl_error);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.tb_pass);
@@ -118,5 +130,6 @@
         private System.Windows.Forms.TextBox tb_pass;
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Label lbl_error;
+        private System.Windows.Forms.Button btn_close;
     }
 }
